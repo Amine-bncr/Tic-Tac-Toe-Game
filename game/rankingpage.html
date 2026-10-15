@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankings</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <!--  Navigation -->
+  <nav> 
+    <ul>
+      <li><a href="index.html">Game</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="loginpage.html">Login</a></li>
+      <li><a href="rankingpage.html" class="active">Ranking</a></li>
+    </ul>
+  </nav>
+
+  <div class="wrapper">
+    <h2>Player Rankings</h2>
+    <table border="1" cellpadding="10" cellspacing="0" style="margin:auto; margin-top:20px; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Wins</th>
+        </tr>
+      </thead>
+      <tbody id="rankingBody">
+        <!-- Filled by ranking.js -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="js/ranking.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      if (window.Ranking && typeof window.Ranking.renderRankingTable === 'function') {
+        window.Ranking.renderRankingTable('rankingBody');
+      }
+    });
+  </script>
+</body>
+</html>

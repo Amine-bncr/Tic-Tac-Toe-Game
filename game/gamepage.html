@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe Game</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+  <!--  Navigation -->
+  <nav> 
+    <ul>
+      <li><a href="index.html">Game</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+      <li><a href="loginpage.html">Login</a></li>
+      <li><a href="rankingpage.html">Ranking</a></li>
+    </ul>
+  </nav>
+
+  <div id="gameContainer">
+    <h1>Tic Tac Toe</h1>
+
+    <!-- Player info & quick controls -->
+    <div id="playerControls" class="player-controls">
+      <div id="playerInfo" class="player-info">
+        <span>Player:</span>
+        <strong id="playerName">-</strong>
+        <span class="sep">|</span>
+        <span>Wins:</span>
+        <strong id="playerScore">0</strong>
+      </div>
+      <div class="control-buttons">
+        <button id="homeBtn" class="btn quaternary">Home</button>
+        <button id="modeBtn" class="btn tertiary">Change Mode</button>
+      </div>
+    </div>
+    <div id="cellContainer">
+      <div cellIndex="0" class="cell"></div>
+      <div cellIndex="1" class="cell"></div>
+      <div cellIndex="2" class="cell"></div>
+      <div cellIndex="3" class="cell"></div>
+      <div cellIndex="4" class="cell"></div>
+      <div cellIndex="5" class="cell"></div>
+      <div cellIndex="6" class="cell"></div>
+      <div cellIndex="7" class="cell"></div>
+      <div cellIndex="8" class="cell"></div>
+    </div>
+    <h2 id="statusText"></h2> 
+    <button id="restartBtn">Restart</button>
+  </div>
+
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const mode = urlParams.get("mode") || "easy";
+
+  const script = document.createElement('script');
+  script.src = mode === "hard" ? "js/botHard.js" : "js/botEasy.js";
+  document.head.appendChild(script);
+</script>
+
+<script src="js/ranking.js"></script>
+<script src="js/botEasy.js"></script>
+<script src="js/botHard.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
